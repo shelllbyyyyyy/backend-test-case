@@ -6,10 +6,11 @@ import { LibraryService } from '@/domain/services/library.service';
 
 import { MemberController } from './member.controller';
 import { BookController } from './book.controller';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [],
-  controllers: [MemberController, BookController],
+  controllers: [MemberController, BookController, AppController],
   providers: [BookService, MemberService, LibraryService],
 })
 export class HttpModule {}
