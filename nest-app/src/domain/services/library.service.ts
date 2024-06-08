@@ -62,30 +62,38 @@ export class LibraryService {
   }
 
   async returnBook(bookCode: string, memberCode: string): Promise<Book> {
-    const book = await this.bookRepository.findByCode(bookCode);
-    const member = await this.memberRepository.findByCode(memberCode);
+    try {
+      const book = await this.bookRepository.findByCode(bookCode);
+      const member = await this.memberRepository.findByCode(memberCode);
 
-    if (!book) {
-      throw new NotFoundException('Book not found or not borrowed.');
+      if (!book) {
+        throw new NotFoundException('Book not found or not borrowed.');
+      }
+
+      const borrowedDate = book.borrowedAt;
+      const currentDate = new Date();
+
+      const msDiff = currentDate.getTime() - borrowedDate.getTime();
+      const daysDiff = Math.floor(msDiff / (1000 * 3600 * 24));
+
+      if (daysDiff > 7) {
+        member.penalty = true;
+        member.penalizedAt = new Date();
+
+        this.memberRepository.update(member);
+
+        throw new Error(
+          'Member is penalized for returning the book late. You cannot borrow book for 3 days',
+        );
+      }
+
+      book.borrowedByMember = null;
+      book.borrowedAt = null;
+      book.returnedAt = new Date();
+
+      return this.bookRepository.return(book);
+    } catch (error) {
+      throw error;
     }
-
-    const borrowedDate = book.borrowedAt;
-    const currentDate = new Date();
-
-    const msDiff = currentDate.getTime() - borrowedDate.getTime();
-    const daysDiff = Math.floor(msDiff / (1000 * 3600 * 24));
-
-    if (daysDiff > 7) {
-      member.penalty = true;
-      member.penalizedAt = new Date();
-
-      this.memberRepository.update(member);
-    }
-
-    book.borrowedByMember = null;
-    book.borrowedAt = null;
-    book.returnedAt = new Date();
-
-    return this.bookRepository.return(book);
   }
 }

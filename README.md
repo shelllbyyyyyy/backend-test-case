@@ -8,18 +8,18 @@
 ## Use Case
 
 - Members can borrow books with conditions
-  - [ ] Members may not borrow more than 2 books
-  - [ ] Borrowed books are not borrowed by other members
-  - [ ] Member is currently not being penalized
+  - [✅] Members may not borrow more than 2 books
+  - [✅] Borrowed books are not borrowed by other members
+  - [✅] Member is currently not being penalized
 - Member returns the book with conditions
-  - [ ] The returned book is a book that the member has borrowed
-  - [ ] If the book is returned after more than 7 days, the member will be subject to a penalty. Member with penalty cannot able to borrow the book for 3 days
+  - [✅] The returned book is a book that the member has borrowed
+  - [✅] If the book is returned after more than 7 days, the member will be subject to a penalty. Member with penalty cannot able to borrow the book for 3 days
 - Check the book
-  - [ ] Shows all existing books and quantities
-  - [ ] Books that are being borrowed are not counted
+  - [✅] Shows all existing books and quantities
+  - [✅] Books that are being borrowed are not counted
 - Member check
-  - [ ] Shows all existing members
-  - [ ] The number of books being borrowed by each member
+  - [✅] Shows all existing members
+  - [✅] The number of books being borrowed by each member
 
 ## Mock Data
 
@@ -81,15 +81,15 @@
 
 ## Requirements
 
-- [ ] it should be use any framework, but prefered [NestJS](https://nestjs.com/) Framework Or [ExpressJS](https://expressjs.com/)
-- [ ] it should be use Swagger as API Documentation
-- [ ] it should be use Database (SQL/NoSQL)
-- [ ] it should be open sourced on your github repo
+- [✅] it should be use any framework, but prefered [NestJS](https://nestjs.com/) Framework Or [ExpressJS](https://expressjs.com/)
+- [✅] it should be use Swagger as API Documentation
+- [✅] it should be use Database (SQL/NoSQL)
+- [✅] it should be open sourced on your github repo
 
 ## Extras
 
-- [ ] Implement [DDD Pattern](<[https://khalilstemmler.com/articles/categories/domain-driven-design/](https://khalilstemmler.com/articles/categories/domain-driven-design/)>)
-- [ ] Implement Unit Testing
+- [✅] Implement [DDD Pattern](<[https://khalilstemmler.com/articles/categories/domain-driven-design/](https://khalilstemmler.com/articles/categories/domain-driven-design/)>)
+- [✅] Implement Unit Testing
 
 ## Notes
 
@@ -97,7 +97,7 @@
 
 ---
 
-# ALGORITMA
+# ALGORITMA <---- DONE ✅
 
 Kerjakan dengan menggunakan bahasa pemograman yg anda kuasai, buat folder terpisah untuk soal ini
 
